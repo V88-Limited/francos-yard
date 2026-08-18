@@ -1,0 +1,52 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-brand: hsl(5 62% 45%);
+  --color-brand-deep: hsl(5 66% 36%);
+  --color-cream: hsl(40 45% 96%);
+  --color-cream-dim: hsl(40 38% 91%);
+  --color-ink: hsl(20 30% 13%);
+  --color-ink-soft: hsl(18 12% 36%);
+
+  --font-display: 'Archivo Black', 'Arial Black', sans-serif;
+  --font-script: 'Yellowtail', cursive;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+
+  /* Ounce Coffee (/ounce) — strictly monochrome */
+  --color-onyx: hsl(0 0% 4%);
+  --color-onyx-soft: hsl(0 0% 9%);
+  --color-smoke: hsl(0 0% 66%);
+  --font-serif: 'DM Serif Display', Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes gal-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-gal-fade {
+  animation: gal-fade 0.9s ease;
+}
+
+body {
+  @apply bg-cream font-sans text-ink antialiased;
+}
+
+/* /ounce owns the dark theme (class set by OuncePage) so overscroll
+   areas match the page background */
+html.ounce body {
+  background: var(--color-onyx);
+}
+
+/* Offset anchored sections below the sticky nav */
+section[id] {
+  scroll-margin-top: 4.5rem;
+}
